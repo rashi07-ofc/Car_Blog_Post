@@ -1,0 +1,105 @@
+.testCont {
+  display: flex;
+  padding: 5%;
+  margin: 5% 0;
+  background-color: #232536;
+  height: 300px;
+}
+
+.left {
+  height: 200px;
+  padding: 4%;
+  width: 556px;
+  color: white;
+  border-right: 2px solid #a8a6a6;
+}
+.right {
+  height: 400px;
+  width: 500px;
+  color: white;
+  padding: 1% 4%;
+}
+
+.left p{
+    margin:20px 0;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.para1{
+  font-size: 1.4rem;
+  word-spacing: 10px;
+  font-weight: bold;
+}
+
+.about{
+    display: flex;
+    margin: 10% 0;
+}
+
+.profileImg{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.name{
+    line-height: 1.5;
+    margin:0 10%;
+}
+.buttons {
+    margin: 0 7%;
+  display: flex;
+  gap: 20px;
+}
+
+.arrowBtn {
+  padding: 8px 12px;
+  font-size: 18px;
+  border: none;
+  width: 80px;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.arrowBtn:hover {
+  background-color: #ddd;
+}
+
+@media (max-width: 900px) {
+  .testCont {
+    flex-direction: column;
+    height: auto;
+    padding: 3%;
+  }
+
+  .left {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #a8a6a6;
+    padding-bottom: 3%;
+    height: auto;
+  }
+
+  .right {
+    width: 100%;
+    height: auto;
+    padding-top: 3%;
+  }
+
+  .about {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .name {
+    margin: 10px 0 0 0;
+    text-align: center;
+  }
+
+  .buttons {
+    margin: 15px 0 0 0;
+  }
+}

@@ -1,0 +1,103 @@
+.navCont {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  padding: 0% 3%;
+  color: white;
+  justify-content: space-between;
+  background-color: #232536;
+}
+
+.navLeft img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  gap: 60px;
+  padding: 0 50px;
+}
+
+.navList li {
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  outline: none;
+  text-decoration-line: none;
+}
+
+.link {
+  color: #ece8e8;
+  text-decoration: none;
+  outline: none;
+  text-decoration-line: none;
+}
+
+.active {
+  color: #ffffff;
+  outline: none;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.subscribeButton {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menuButton {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+    top: 15px;
+    right: 15px;
+    z-index: 1001;
+  }
+
+  .navRight {
+    flex-direction: column;
+    top: 10vh;
+    right: 0;
+    width: 100%;
+    background-color: #232536;
+    display: none;
+    z-index: 1000;
+  }
+
+  .navRight.active {
+    display: flex;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .subscribeButton {
+    margin-bottom: 10px;
+  }
+}
