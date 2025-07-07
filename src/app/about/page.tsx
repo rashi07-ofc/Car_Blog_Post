@@ -3,6 +3,8 @@ import styles from './page.module.css';
 
 const About: React.FC = () => {
   return (
+    <div className={styles.boddy}>
+
     <div className={styles.aboutContainer}>
       <h1>About AutoRev Blog</h1>
 
@@ -55,6 +57,8 @@ const About: React.FC = () => {
         </p>
       </section>
     </div>
+        </div>
+
   );
 };
 
