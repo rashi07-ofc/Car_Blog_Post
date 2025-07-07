@@ -38,7 +38,7 @@
 }
 
 .link {
-  color: #ece8e8;
+  color: #e9dbdb;
   text-decoration: none;
   outline: none;
   text-decoration-line: none;
@@ -47,7 +47,7 @@
 .active {
   color: #ffffff;
   outline: none;
-  font-weight: bolder;
+  font-weight:900;
   text-decoration: none;
 }
 

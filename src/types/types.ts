@@ -18,6 +18,7 @@ export type CardDetail = {
   desc: string;
   username: string;
   website: string;
+  category:string
 };
 
 

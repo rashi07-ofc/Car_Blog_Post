@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Cover from "../components/Cover";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { useRef } from "react";
 import { getAllPostsWithUsers } from "../../api/api";
 import type { CardDetail } from "../../types/types";
 
@@ -15,8 +16,9 @@ function Page() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
-
-    const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const categories = ["All", "SUV", "EV", "Luxury", "Sedan"];
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     const loadData = async () => {
@@ -36,15 +38,25 @@ function Page() {
   }, []);
 
   useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
     const start = (currentPage - 1) * PAGE_SIZE;
     const end = start + PAGE_SIZE;
     setCards(allCards.slice(start, end));
   }, [currentPage, allCards]);
 
-
-    const filteredCards = cards.filter((card) =>
-    card.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCards = cards.filter((card) => {
+    const matchesSearch = card.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || card.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   const totalPages = Math.ceil(allCards.length / PAGE_SIZE);
 
@@ -56,11 +68,12 @@ function Page() {
     if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
   };
 
- 
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <>
       <Cover />
-      <div className={styles.conatiner}>
+      <div className={styles.conatiner} ref={containerRef}>
         <div className={styles.heading}>All Posts</div>
 
         <input
@@ -78,6 +91,20 @@ function Page() {
         {!loading && !error && filteredCards.length === 0 && (
           <p>No matching blogs on this page.</p>
         )}
+
+        <div className={styles.filterBar}>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`${styles.categoryButton} ${
+                selectedCategory === cat ? styles.activeCategory : ""
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
         {!loading &&
           !error &&
@@ -107,6 +134,8 @@ function Page() {
                     Nov 18, 2078 - 7min Read
                   </span>
                 </div>
+                <div className={styles.categoryTag}>{card.category}</div>
+
                 <div className={styles.desc}>{card.desc}</div>
 
                 <Link
@@ -147,7 +176,6 @@ function Page() {
       </div>
     </>
   );
-
 }
 
 export default Page;

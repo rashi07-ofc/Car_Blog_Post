@@ -12,3 +12,22 @@
 .specs ul li {
   margin: 10px;
 }
+.rating {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #4caf50;
+  border-radius: 6px;
+}
+
+.rating h3 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.rating p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 4px 0;
+}

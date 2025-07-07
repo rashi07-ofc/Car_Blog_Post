@@ -18,7 +18,7 @@ const PostDetailPage = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-  if (!id || Array.isArray(id)) return;
+    if (!id || Array.isArray(id)) return;
     const fetchData = async () => {
       setLoading(true);
       setError(null);

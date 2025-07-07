@@ -2,6 +2,11 @@ import axios from "axios";
 import type { Post, User, CardDetail } from "../types/types";
 
 const BASE_URL = "https://jsonplaceholder.typicode.com";
+const CAR_CATEGORIES = ["SUV", "EV", "Luxury", "Sedan"];
+
+const getRandomCategory = () => {
+  return CAR_CATEGORIES[Math.floor(Math.random() * CAR_CATEGORIES.length)];
+};
 
 export const getPostById = async (id: string) => {
   const response = await axios.get(`${BASE_URL}/posts/${id}`);
@@ -43,6 +48,7 @@ export const getAllPostsWithUsers = async (): Promise<CardDetail[]> => {
       desc: post.body,
       username: user?.username || "Unknown",
       website: user?.website || "example.com",
+       category: getRandomCategory(),
     };
   });
 

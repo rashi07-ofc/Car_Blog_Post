@@ -1,4 +1,5 @@
-import styles from '../../styles/Footer.module.css';
+import styles from "../../styles/Footer.module.css";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -6,17 +7,18 @@ const Footer = () => {
       <div className={styles.topSection}>
         <div className={styles.logo}>LOGO</div>
         <nav className={styles.navLinks}>
-          <a href="#">Home</a>
-          <a href="#">Blog</a>
-          <a href="#">About us</a>
-          <a href="#">Contact us</a>
-          <a href="#">Privacy Policy</a>
+          <Link href="/">Home</Link>
+          <Link href="/blogs">Blog</Link>
+          <Link href="/about">About us</Link>
+          <Link href="/contact">Contact us</Link>
+          <Link href="/privacy-policy">Privacy Policy</Link>
         </nav>
       </div>
 
       <div className={styles.subscribeSection}>
         <p className={styles.subscribeText}>
-          Subscribe to our newsletter to <br />get latest updates and news
+          Subscribe to our newsletter to <br />
+          get latest updates and news
         </p>
         <form className={styles.form}>
           <input type="email" placeholder="example@email.com" />
