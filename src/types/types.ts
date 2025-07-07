@@ -7,6 +7,7 @@ export type Post = {
 
 export type User = {
   id: number;
+  name:string,
   username: string;
   website: string;
 };
