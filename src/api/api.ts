@@ -42,6 +42,7 @@ export const getAllPostsWithUsers = async (): Promise<CardDetail[]> => {
   const cards: CardDetail[] = posts.map((post) => {
     const user = userMap[post.userId];
     return {
+      id:post.id,
       imgUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCmDBXuOrWKRZ5Ak4rPI6kmBDPg3OlNkkXOg&s",
       title: post.title,

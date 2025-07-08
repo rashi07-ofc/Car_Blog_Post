@@ -3,6 +3,7 @@ import styles from "../styles/CarPostCard.module.css";
 import Link from "next/link";
 import type { CardDetail } from "../../types/types";
 import { getAllPostsWithUsers } from "../../api/api";
+import Loader from "./Loader";
 
 function CarPostCard({ imgUrl, title, username, website }: CardDetail) {
   return (
@@ -59,9 +60,7 @@ export default function CarPostCardList() {
 
   if (loading) {
     return (
-      <div style={{ textAlign: "center", padding: "50px 0" }}>
-        Loading posts...
-      </div>
+      <Loader/>
     );
   }
 
@@ -93,10 +92,12 @@ export default function CarPostCardList() {
       <div className={styles.cardGrid}>
         {cards.map((item, idx) => (
           <CarPostCard
+           id={item.id}
             key={idx}
             imgUrl={item.imgUrl}
             title={item.title}
             desc={item.desc}
+            category={item.category}
             username={item.username}
             website={item.website}
           />

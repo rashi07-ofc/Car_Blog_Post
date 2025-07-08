@@ -14,8 +14,8 @@ function Header() {
       <div className={styles.navCont}>
         <div className={styles.navLeft}>
           <img
-            src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
-            alt="Profile"
+            src="https://image.made-in-china.com/202f0j00yFmaGSnzLEkc/White-Acrylic-Crystal-LED-Light-Car-Logo-Sign.webp"
+            alt="logoo"
           />
         </div>
 

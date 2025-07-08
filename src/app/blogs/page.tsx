@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 import { useRef } from "react";
 import { getAllPostsWithUsers } from "../../api/api";
 import type { CardDetail } from "../../types/types";
+import Loader from "../components/Loader";
 
 const PAGE_SIZE = 10;
 
@@ -73,6 +74,13 @@ function Page() {
   return (
     <>
       <Cover />
+ {loading && <Loader />}
+        {error && <p className={styles.error}>{error}</p>}
+
+        {!loading && !error && filteredCards.length === 0 && (
+          <p>No matching blogs on this page.</p>
+        )}
+        
       <div className={styles.conatiner} ref={containerRef}>
         <div className={styles.heading}>All Posts</div>
 
@@ -84,14 +92,7 @@ function Page() {
           className={styles.searchInput}
         />
 
-        {loading && <p>Loading car blogs...</p>}
-
-        {error && <p className={styles.error}>{error}</p>}
-
-        {!loading && !error && filteredCards.length === 0 && (
-          <p>No matching blogs on this page.</p>
-        )}
-
+        
         <div className={styles.filterBar}>
           {categories.map((cat) => (
             <button
@@ -113,7 +114,7 @@ function Page() {
               <div className={styles.left}>
                 <img
                   src={card.imgUrl}
-                  alt={`Image for ${card.title}`}
+                  alt={`Image`}
                   width={200}
                   height={150}
                   style={{ objectFit: "cover" }}
@@ -139,8 +140,7 @@ function Page() {
                 <div className={styles.desc}>{card.desc}</div>
 
                 <Link
-                  href={`/blogs/posts/${
-                    (currentPage - 1) * PAGE_SIZE + index + 1
+                  href={`/blogs/posts/${card.id
                   }`}
                   className={styles.btnRead}
                 >
