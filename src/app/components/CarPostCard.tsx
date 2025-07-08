@@ -3,7 +3,7 @@ import styles from "../styles/CarPostCard.module.css";
 import Link from "next/link";
 import type { CardDetail } from "../../types/types";
 import { getAllPostsWithUsers } from "../../api/api";
-import Loader from "./Loader";
+import Loader from "../blogs/posts/[id]/loading";
 
 function CarPostCard({ imgUrl, title, username, website }: CardDetail) {
   return (

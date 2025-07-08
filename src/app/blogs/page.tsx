@@ -7,7 +7,6 @@ import styles from "./page.module.css";
 import { useRef } from "react";
 import { getAllPostsWithUsers } from "../../api/api";
 import type { CardDetail } from "../../types/types";
-import Loader from "../components/Loader";
 
 const PAGE_SIZE = 10;
 
@@ -74,7 +73,8 @@ function Page() {
   return (
     <>
       <Cover />
- {loading && <Loader />}
+      {loading && <p>Loading car blogs...</p>}
+
         {error && <p className={styles.error}>{error}</p>}
 
         {!loading && !error && filteredCards.length === 0 && (
